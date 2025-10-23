@@ -9,19 +9,58 @@
 <body>
     <div class="container">
         <div class="header">
-            <a href="index.html" class="logo">BOSK8</a>
-        </div>
-        
-        <div class="tagline">
-            <h1>CUSTOM DEVOPS SOLUTIONS</h1>
+            <a href="index.html" class="logo terminal-typing" id="typing-text">bosk8.com</a>
         </div>
         
         <div class="features">
-            <a href="ai-powered.html" class="feature-box">AI-POWERED</a>
-            <a href="cloud-solutions.html" class="feature-box">CLOUD SOLUTIONS</a>
-            <a href="data-analytics.html" class="feature-box">DATA ANALYTICS</a>
-            <a href="portfolio.html" class="feature-box">PORTFOLIO</a>
+            <a href="portfolio.html" class="feature-box">
+                <span class="icon">💼</span>
+                <span class="text">[PORTFOLIO]</span>
+            </a>
+            <a href="data-analytics.html" class="feature-box">
+                <span class="icon">></span>
+                <span class="text">[DATA ANALYTICS]</span>
+            </a>
+            <a href="automation.html" class="feature-box">
+                <span class="icon">⚡</span>
+                <span class="text">[AUTOMATION]</span>
+            </a>
+            <a href="contact.html" class="feature-box">
+                <span class="icon">@</span>
+                <span class="text">[CONTACT]</span>
+            </a>
         </div>
     </div>
+    
+    <script>
+        const textElement = document.getElementById('typing-text');
+        const text = 'bosk8.com';
+        let index = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            if (isDeleting) {
+                textElement.textContent = text.substring(0, index--);
+                if (index < 0) {
+                    isDeleting = false;
+                    setTimeout(typeEffect, 1000); // Pause before typing again
+                } else {
+                    setTimeout(typeEffect, 100);
+                }
+            } else {
+                textElement.textContent = text.substring(0, index++);
+                if (index > text.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 2000); // Pause before deleting
+                } else {
+                    setTimeout(typeEffect, 150);
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(typeEffect, 1000); // Initial delay before starting
+        });
+    </script>
 </body>
 </html>
