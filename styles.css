@@ -1,0 +1,236 @@
+/* Bosk8 - Terminal Style CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'IBM Plex Mono', 'Courier New', 'Monaco', 'Menlo', monospace;
+    background-color: #111111;
+    color: #ffffff;
+    min-height: 100vh;
+    line-height: 1.4;
+    font-size: 14px;
+}
+
+/* Layout */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header */
+.header {
+    border: 1px solid #333333;
+    padding: 2rem;
+    margin-bottom: 0;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Tagline */
+.tagline {
+    border: 1px solid #333333;
+    border-top: none;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.tagline h1 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+}
+
+/* Features Grid */
+.features {
+    border: 1px solid #333333;
+    border-top: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.feature-box {
+    border: 1px solid #333333;
+    padding: 2rem;
+    text-align: center;
+    background: #111111;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.feature-box:hover {
+    background: #1a1a1a;
+}
+
+.feature-box:nth-child(1) {
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+}
+
+.feature-box:nth-child(2) {
+    border-bottom: 1px solid #333333;
+}
+
+.feature-box:nth-child(3) {
+    border-right: 1px solid #333333;
+}
+
+/* Navigation */
+.nav {
+    border: 1px solid #333333;
+    border-bottom: none;
+    padding: 1rem 2rem;
+    background: #111111;
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Content Pages */
+.page-content {
+    padding: 2rem 0;
+}
+
+.content-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.content-page h1 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    font-weight: 400;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: 1px solid #333333;
+    padding: 2rem;
+}
+
+.content-page h1 i {
+    color: #ffffff;
+    margin-right: 0.5rem;
+}
+
+.content-page p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: #cccccc;
+    border: 1px solid #333333;
+    border-top: none;
+    padding: 1rem 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.8rem;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-box:nth-child(1),
+    .feature-box:nth-child(2),
+    .feature-box:nth-child(3) {
+        border-right: none;
+        border-bottom: 1px solid #333333;
+    }
+    
+    .feature-box:nth-child(4) {
+        border-right: none;
+        border-bottom: none;
+    }
+    
+    .content-page {
+        padding: 0 1rem;
+    }
+    
+    .content-page h1 {
+        font-size: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .content-page p {
+        padding: 1rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.25rem;
+    }
+    
+    .tagline h1 {
+        font-size: 1rem;
+    }
+    
+    .feature-box {
+        padding: 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .content-page h1 {
+        font-size: 1.25rem;
+        padding: 1rem;
+    }
+}
