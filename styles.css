@@ -19,6 +19,7 @@ body {
     max-width: 1000px;
     width: 100%;
     padding: 2rem;
+    margin: 0 auto;
 }
 
 /* Header */
@@ -195,6 +196,8 @@ body {
 /* Content Pages */
 .page-content {
     padding: 2rem 0;
+    display: flex;
+    justify-content: center;
 }
 
 .content-page {
