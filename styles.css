@@ -20,6 +20,10 @@ body {
     width: 100%;
     padding: 2rem;
     margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* Header */
@@ -40,28 +44,37 @@ body {
 
 /* Back to Home Grid Item */
 .back-to-home-item {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 120px;
+    border: 1px solid #333333;
+    padding: 1.5rem;
+    background: #111111;
+    margin-top: 1rem;
 }
 
 .back-to-home-link {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #222222;
-    border: 1px solid #444444;
-    color: #cccccc;
+    color: #ffffff;
     text-decoration: none;
     font-size: 0.9rem;
-    transition: all 0.3s ease;
-    text-align: left;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back-to-home-link::before {
+    content: '←';
+    font-size: 1rem;
+    color: #ffffff;
 }
 
 .back-to-home-link:hover {
-    background-color: #333333;
-    color: #ffffff;
-    border-color: #666666;
+    color: #cccccc;
+}
+
+.back-to-home-link:hover::before {
+    color: #cccccc;
 }
 
 /* Terminal Typing Animation */
@@ -551,7 +564,7 @@ body {
 
 /* Feature Sections */
 .feature-section {
-    margin: 2rem 0;
+    margin: 0;
 }
 
 .feature-section h2 {
@@ -563,6 +576,8 @@ body {
     letter-spacing: 0.1em;
     border: 1px solid #333333;
     padding: 1.5rem;
+    width: 100%;
+    display: block;
 }
 
 .feature-section p {

@@ -12,7 +12,7 @@
     <div class="page-content">
         <div class="content-page">
             <div class="feature-section">
-                <h2>Data Analytics</h2>
+                <h2 class="terminal-typing" id="typing-text">Data Analytics</h2>
                 <div class="project-grid">
                     <div class="project-item">
                         <h3>Statistical Analysis Dashboard</h3>
@@ -61,5 +61,36 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        const textElement = document.getElementById('typing-text');
+        const text = 'Data Analytics';
+        let index = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            if (isDeleting) {
+                textElement.textContent = text.substring(0, index--);
+                if (index < 0) {
+                    isDeleting = false;
+                    setTimeout(typeEffect, 1000); // Pause before typing again
+                } else {
+                    setTimeout(typeEffect, 100);
+                }
+            } else {
+                textElement.textContent = text.substring(0, index++);
+                if (index > text.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 2000); // Pause before deleting
+                } else {
+                    setTimeout(typeEffect, 150);
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(typeEffect, 1000); // Initial delay before starting
+        });
+    </script>
 </body>
 </html>
