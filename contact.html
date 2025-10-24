@@ -9,7 +9,12 @@
 <body>
     <div class="nav">
         <div class="nav-container">
-            <a href="index.html" class="logo">bosk8.com</a>
+            <a href="index.html" class="logo terminal-typing" id="typing-text">bosk8.com</a>
+            <button class="nav-toggle" aria-label="Toggle navigation menu">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="data-analytics.html">Data Analytics</a></li>
@@ -25,49 +30,69 @@
             
             <div class="feature-section">
                 <h2>info@bosk8.com</h2>
-                <div class="project-grid">
-                    <div class="project-item">
-                        <h3>Client Consultation Process</h3>
-                        <p>Structured consultation approach to understand your infrastructure needs and challenges. We assess current systems, identify pain points, and develop customized solutions for your business.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Consultation</span>
-                            <span class="tech-tag">Assessment</span>
-                            <span class="tech-tag">Strategy</span>
-                        </div>
-                    </div>
-                    
-                    <div class="project-item">
-                        <h3>Custom Solution Design</h3>
-                        <p>Tailored DevOps solutions designed specifically for your business requirements. From initial concept to implementation, we create solutions that scale with your growth and adapt to your needs.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Custom Design</span>
-                            <span class="tech-tag">Scalability</span>
-                            <span class="tech-tag">Implementation</span>
-                        </div>
-                    </div>
-                    
-                    <div class="project-item">
-                        <h3>Ongoing Support & Maintenance</h3>
-                        <p>Comprehensive support services to ensure your infrastructure runs smoothly. We provide monitoring, maintenance, and optimization services to keep your systems performing at peak efficiency.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Support</span>
-                            <span class="tech-tag">Monitoring</span>
-                            <span class="tech-tag">Maintenance</span>
-                        </div>
-                    </div>
-                    
-                    <div class="project-item">
-                        <h3>Training & Knowledge Transfer</h3>
-                        <p>Empower your team with the knowledge and skills needed to maintain and optimize your infrastructure. We provide comprehensive training and documentation for long-term success.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Training</span>
-                            <span class="tech-tag">Documentation</span>
-                            <span class="tech-tag">Knowledge Transfer</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Typing animation for logo
+        const textElement = document.getElementById('typing-text');
+        const text = 'bosk8.com';
+        let index = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            if (isDeleting) {
+                textElement.textContent = text.substring(0, index--);
+                if (index < 0) {
+                    isDeleting = false;
+                    setTimeout(typeEffect, 1000); // Pause before typing again
+                } else {
+                    setTimeout(typeEffect, 100);
+                }
+            } else {
+                textElement.textContent = text.substring(0, index++);
+                if (index > text.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 2000); // Pause before deleting
+                } else {
+                    setTimeout(typeEffect, 150);
+                }
+            }
+        }
+
+        // Mobile navigation toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start typing animation
+            setTimeout(typeEffect, 1000); // Initial delay before starting
+            
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('nav-open');
+                    navToggle.classList.toggle('nav-toggle-open');
+                });
+                
+                // Close mobile menu when clicking on a link
+                const navLinkItems = document.querySelectorAll('.nav-links a');
+                navLinkItems.forEach(link => {
+                    link.addEventListener('click', function() {
+                        navLinks.classList.remove('nav-open');
+                        navToggle.classList.remove('nav-toggle-open');
+                    });
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!navToggle.contains(event.target) && !navLinks.contains(event.target)) {
+                        navLinks.classList.remove('nav-open');
+                        navToggle.classList.remove('nav-toggle-open');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

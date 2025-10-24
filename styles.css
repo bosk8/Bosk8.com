@@ -17,7 +17,7 @@ body {
 /* Layout */
 .container {
     max-width: 1000px;
-    margin: 0 auto;
+    width: 100%;
     padding: 2rem;
 }
 
@@ -139,6 +139,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 .nav-links {
@@ -158,6 +159,37 @@ body {
 
 .nav-links a:hover {
     text-decoration: underline;
+}
+
+/* Mobile Navigation Toggle */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.hamburger {
+    width: 1.5rem;
+    height: 2px;
+    background: #ffffff;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.nav-toggle-open .hamburger:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle-open .hamburger:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle-open .hamburger:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* Content Pages */
@@ -208,12 +240,53 @@ body {
         padding: 0 1rem;
     }
     
+    /* Mobile Navigation */
+    .nav-toggle {
+        display: flex;
+    }
+    
     .nav-links {
-        gap: 1rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #111111;
+        border: 1px solid #333333;
+        border-top: none;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+    
+    .nav-links.nav-open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-links li {
+        border-bottom: 1px solid #333333;
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none;
     }
     
     .nav-links a {
-        font-size: 0.8rem;
+        display: block;
+        padding: 1rem 2rem;
+        font-size: 0.9rem;
+        border: none;
+    }
+    
+    .nav-links a:hover {
+        background: #1a1a1a;
+        text-decoration: none;
     }
     
     .features {
