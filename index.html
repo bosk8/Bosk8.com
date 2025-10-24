@@ -6,6 +6,11 @@
     <title>Bosk8 - Custom DevOps Solutions</title>
     <link rel="icon" type="image/svg+xml" href="B8.svg">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .terminal-typing {
+            font-size: 1.2rem !important;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -35,22 +40,34 @@
     
     <script>
         const textElement = document.getElementById('typing-text');
-        const text = 'bosk8.com';
+        const texts = ['bosk8.com', 'Business Optimization Systems and Knowledge Automation'];
+        let currentTextIndex = 0;
         let index = 0;
         let isDeleting = false;
+        let hasCompletedFirstCycle = false;
 
         function typeEffect() {
+            const currentText = texts[currentTextIndex];
+            
             if (isDeleting) {
-                textElement.textContent = text.substring(0, index--);
+                textElement.textContent = currentText.substring(0, index--);
                 if (index < 0) {
                     isDeleting = false;
+                    // After deleting the first text, switch to the second text
+                    if (currentTextIndex === 0) {
+                        currentTextIndex = 1;
+                        hasCompletedFirstCycle = true;
+                    } else {
+                        // After deleting the second text, go back to the first
+                        currentTextIndex = 0;
+                    }
                     setTimeout(typeEffect, 1000); // Pause before typing again
                 } else {
                     setTimeout(typeEffect, 100);
                 }
             } else {
-                textElement.textContent = text.substring(0, index++);
-                if (index > text.length) {
+                textElement.textContent = currentText.substring(0, index++);
+                if (index > currentText.length) {
                     isDeleting = true;
                     setTimeout(typeEffect, 2000); // Pause before deleting
                 } else {
