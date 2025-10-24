@@ -38,6 +38,32 @@ body {
     letter-spacing: 0.1em;
 }
 
+/* Back to Home Grid Item */
+.back-to-home-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 120px;
+}
+
+.back-to-home-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #222222;
+    border: 1px solid #444444;
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.back-to-home-link:hover {
+    background-color: #333333;
+    color: #ffffff;
+    border-color: #666666;
+}
+
 /* Terminal Typing Animation */
 .terminal-typing {
     position: relative;

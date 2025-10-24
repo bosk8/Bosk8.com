@@ -7,22 +7,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="nav">
-        <div class="nav-container">
-            <a href="index.html" class="logo terminal-typing" id="typing-text">bosk8.com</a>
-            <button class="nav-toggle" aria-label="Toggle navigation menu">
-                <span class="hamburger"></span>
-                <span class="hamburger"></span>
-                <span class="hamburger"></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="data-analytics.html">Data Analytics</a></li>
-                <li><a href="automation.html">Automation</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </div>
 
     <div class="page-content">
         <div class="content-page">
@@ -69,69 +53,12 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="project-item back-to-home-item">
+                    <a href="index.html" class="back-to-home-link">Back to Home</a>
+                </div>
             </div>
         </div>
     </div>
-
-    <script>
-        // Typing animation for logo
-        const textElement = document.getElementById('typing-text');
-        const text = 'bosk8.com';
-        let index = 0;
-        let isDeleting = false;
-
-        function typeEffect() {
-            if (isDeleting) {
-                textElement.textContent = text.substring(0, index--);
-                if (index < 0) {
-                    isDeleting = false;
-                    setTimeout(typeEffect, 1000); // Pause before typing again
-                } else {
-                    setTimeout(typeEffect, 100);
-                }
-            } else {
-                textElement.textContent = text.substring(0, index++);
-                if (index > text.length) {
-                    isDeleting = true;
-                    setTimeout(typeEffect, 2000); // Pause before deleting
-                } else {
-                    setTimeout(typeEffect, 150);
-                }
-            }
-        }
-
-        // Mobile navigation toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            // Start typing animation
-            setTimeout(typeEffect, 1000); // Initial delay before starting
-            
-            const navToggle = document.querySelector('.nav-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            
-            if (navToggle && navLinks) {
-                navToggle.addEventListener('click', function() {
-                    navLinks.classList.toggle('nav-open');
-                    navToggle.classList.toggle('nav-toggle-open');
-                });
-                
-                // Close mobile menu when clicking on a link
-                const navLinkItems = document.querySelectorAll('.nav-links a');
-                navLinkItems.forEach(link => {
-                    link.addEventListener('click', function() {
-                        navLinks.classList.remove('nav-open');
-                        navToggle.classList.remove('nav-toggle-open');
-                    });
-                });
-                
-                // Close mobile menu when clicking outside
-                document.addEventListener('click', function(event) {
-                    if (!navToggle.contains(event.target) && !navLinks.contains(event.target)) {
-                        navLinks.classList.remove('nav-open');
-                        navToggle.classList.remove('nav-toggle-open');
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 </html>
